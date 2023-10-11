@@ -20,7 +20,7 @@ Ubuntu(Generalmente ya viene preinstalado):
 * pip install os-sys
 * pip install requests
 
-## Utilización de los codigos:
-### Prueba sql_injection_test.py
+### Utilización de los codigos:
+## Prueba sql_injection_test.py
 
-### Prueba xss_test.py:
+## Prueba xss_test.py:
