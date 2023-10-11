@@ -8,17 +8,17 @@ Ubuntu (Generalmente ya viene preinstalado):
 - Abrir consola, y usar comandos: 
 * sudo apt update #Actualizamos la lista de repositorios
 * sudo apt install python3 #Instalamos Python
-* python --version #Verificar que se instalo, y versión
+* python --version #Verificar que se instaló, y versión
 
 2) Instalamos pip
 * sudo apt install python3-pip
-* pip3 --version #Verificar que se instalo, y versión
+* pip3 --version #Verificar que se instaló, y versión
 
 3) Instalamos librerias
 * pip install os-sys
 * pip install requests
 
-## Utilización de los codigos:
+## Utilización de los códigos:
 ### Prueba sql_injection_test.py
 
 ### Prueba xss_test.py:
