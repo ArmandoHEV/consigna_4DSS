@@ -26,10 +26,10 @@ pip3 --version #Verificar que se instaló, y versión
 
 3) Instalamos librerias
 ```
-pip install os-sys
+sudo pip install os-sys
 ```
 ```
-pip install requests
+sudo pip install requests
 ```
 
 ## Utilización de los códigos:
