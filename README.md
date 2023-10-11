@@ -44,7 +44,7 @@ En la variable url se indica la url base para hacer la consulta, de cambiar de p
 ```
 url = "http://localhost:8080/AltoroJ"
 ```
-Primero se hace un get a la url para obtener el JSESSIONID que es necesario para poder crear correctamente la request con la inyección al servidor.
+Primero se hace un get a la url para obtener el JSESSIONID que es necesario para poder recrear correctamente la request con la inyección al servidor.
 ```
 s = requests.Session()
 
