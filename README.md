@@ -1,7 +1,9 @@
 # Consigna_4DSS
 ## Setup
 1) Descargar python3 para tu sistema operativo:
+
 Windows -https://www.python.org/downloads/windows/
+
 Ubuntu(Generalmente ya viene preinstalado):
 - Abrir consola, y usar comandos: 
 .Actualizamos la lista de repositorios
