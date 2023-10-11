@@ -21,6 +21,6 @@ Ubuntu(Generalmente ya viene preinstalado):
 * pip install requests
 
 ## Utilización de los codigos:
-# Prueba sql_injection_test.py
+### Prueba sql_injection_test.py
 
-# Prueba xss_test.py:
+### Prueba xss_test.py:
