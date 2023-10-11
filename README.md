@@ -4,7 +4,7 @@
 
 Windows -https://www.python.org/downloads/windows/
 
-Ubuntu(Generalmente ya viene preinstalado):
+Ubuntu (Generalmente ya viene preinstalado):
 - Abrir consola, y usar comandos: 
 * sudo apt update #Actualizamos la lista de repositorios
 * sudo apt install python3 #Instalamos Python
