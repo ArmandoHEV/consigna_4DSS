@@ -6,17 +6,13 @@ Windows -https://www.python.org/downloads/windows/
 
 Ubuntu(Generalmente ya viene preinstalado):
 - Abrir consola, y usar comandos: 
-.Actualizamos la lista de repositorios
-* sudo apt update
-.Instalamos Python
-* sudo apt install python3
-.Verificar que se instalo, y versión
-* python --version
+* sudo apt update #Actualizamos la lista de repositorios
+* sudo apt install python3 #Instalamos Python
+* python --version #Verificar que se instalo, y versión
 
 2) Instalamos pip
 * sudo apt install python3-pip
-.Verificar que se instalo, y versión
-* pip3 --version
+* pip3 --version #Verificar que se instalo, y versión
 
 3) Instalamos librerias
 * pip install os-sys
