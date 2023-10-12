@@ -3,6 +3,7 @@ import sys
 
 url = "http://" + sys.argv[1] + ":" + sys.argv[2] + "/AltoroJ"
 
+
 s = requests.Session()
 
 jSessionId = s.get(url, verify=0).cookies.get("JSESSIONID")
@@ -21,7 +22,7 @@ headers = {
 
 data = "uid=%27+OR+1%3D1+--&passw=1234&btnSubmit=Login"
 
-response = s.post(url+"/doLogin", headers=headers, data=data, allow_redirects=False)
+response = s.post(url + "/doLogin", headers=headers, data=data, allow_redirects=False)
 
 if response.status_code == 302 and response.cookies.get("AltoroAccounts"):
     sys.exit(1)
