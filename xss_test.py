@@ -1,7 +1,7 @@
 import requests 
 import sys
 
-url = "http://localhost:8080/AltoroJ"
+url = "http://" + sys.argv[1] + ":" + sys.argv[2] + "/AltoroJ"
 
 s = requests.Session()
 
@@ -21,7 +21,7 @@ headers = {
 
 injection = "<script>alert('Vulnerabilidad XSS')</script>"
 
-response = s.get(url+"/search.jsp?query="+injection, headers=headers, allow_redirects=False)
+response = s.get(url+"/search.jsp?query="+injection, headers=headers, )
 
 if injection in response.text:
     sys.exit(1)
