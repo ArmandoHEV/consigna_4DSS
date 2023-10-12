@@ -33,7 +33,7 @@ pip install requests
 ```
 
 ## Utilización de los códigos:
-Para utilizar los scripts y hacer las pruebas se ve necesario hacer los pasos indicados en el setup. Posteriormente se deben descargar los archivos, y abrir una consola en la cual se debe cambiar de repositorio, usando el comando cd <ruta_script>, hasta aquel donde se encuentra el script, y por ultimo ingresar python3 <nombre_scrip> para ejecutar el código.
+Para utilizar los scripts y hacer las pruebas se ve necesario hacer los pasos indicados en el setup. Posteriormente se deben descargar los archivos, y abrir una consola en la cual se debe cambiar de repositorio, usando el comando cd <ruta_script>, hasta aquel donde se encuentra el script, y por ultimo ingresar python3 <nombre_script> para ejecutar el código.
 
 ### Prueba sql_injection_test.py
 Primer se importan las librerias requests, y sys. Sus funcionalidades son crear los requests al servidor, e indicar un valor de exit code.
