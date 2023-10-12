@@ -35,7 +35,7 @@ pip install requests
 ## Utilización de los códigos:
 
 ### Prueba sql_injection_test.py
-Primer se importan las librerias requests, y sys. Sus funcionalidades son crear los requests al servidor, y indicar un valor de exit code.
+Primer se importan las librerias requests, y sys. Sus funcionalidades son crear los requests al servidor, e indicar un valor de exit code.
 ```
 import requests 
 import sys
@@ -69,7 +69,7 @@ Posteriormente se crea el payload, que en este caso se ve en la variable data, a
 ```
 data = "uid=%27+OR+1%3D1+--&passw=1234&btnSubmit=Login"
 ```
-En el post que se genera con el método .post se le añade a la url /doLogin/ para hacer el pedido a la localización que deseamos, se añaden los headers, y además el data que contiene el payload. Al final del método se añade también un parámetro allow_redirects=false, esto es porque de ser una prueba exitosa se nos da el token de AltoroAccount en el response de redirección, de no indicar el allow_redirects en false nos devolverá el segundo response que se obtiene posterior al redirect, el cual no posee la información necesaria para reconocer si se dejó paso a la inyección o no. 
+En el post que se genera con el método .post se le añade a la url /doLogin/ para hacer el pedido a la localización que deseamos, se añaden los headers, y además el data que contiene el payload. Al final del método se añade también un parámetro allow_redirects=false, esto es porque de ser una prueba exitosa se nos da el token de AltoroAccount en el response de redirección, de no indicar el allow_redirects en false nos devolverá el segundo response que se obtiene posterior al redirect, el cual actualmente no posee la información necesaria para reconocer si se dejó paso a la inyección o no. 
 ```
 response = s.post(url+"/doLogin", headers=headers, data=data, allow_redirects=False)
 ```
@@ -81,4 +81,43 @@ else:
     sys.exit(0)
 ```
 ### Prueba xss_test.py:
-En esta prueba hay que tener en cuenta las mismas indicaciones para la variable url que en la primera.
+En esta prueba hacemos los mismos imports, y hay que tener en cuenta las mismas indicaciones para la variable url que en la primera.
+```
+import requests 
+import sys
+
+url = "http://localhost:8080/AltoroJ"
+```
+Nuevamente se recrea un request, en este caso estamos recreando el request generado al buscar algo en la searchbar.
+```
+s = requests.Session()
+
+jSessionId = s.get(url, verify=0).cookies.get("JSESSIONID")
+headers = {
+    "Host": "localhost:8080",
+    "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux aarch64; rv:109.0) Gecko/20100101 Firefox/118.0",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.5",
+    "Referer": "http://localhost:8080/AltoroJ/login.jsp",
+    "Content-Type": "application/x-www-form-urlencoded",
+    "Origin": "http://localhost:8080",
+    "Connection": "keep-alive",
+    "Cookie": "JSESSIONID="+str(jSessionId),
+    "Upgrade-Insecure-Requests": "1",
+}
+```
+En este caso el ataque se encuentra en intentar agregar una etiqueta <script> con un alert() al html de la pagina web, mediante el añadido del ataque en la query.
+```
+injection = "<script>alert('Vulnerabilidad XSS')</script>"
+```
+El request en este caso es un metodo get, se le añade a la url /search.jsp?query=+injection para hacer el pedido a la localización deseada y para mandar en la query el ataque.
+```
+response = s.get(url+"/search.jsp?query="+injection, headers=headers, allow_redirects=False)
+```
+La response devuelve el html de la pagina, si en este se encuentra la etiqueta <script> con el alert(), es decir el ataque, significa que la vulnerabilidad no esta mitigada, y la prueba da positivo con un exit code 1, y en caso de que el ataque no se encuentre en el html la prueba falla con un exit code 0, significando que esta mitigada la vulnerabilidad.
+```
+if injection in response.text:
+    sys.exit(1)
+else:
+    sys.exit(0)
+```
