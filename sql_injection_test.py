@@ -1,7 +1,7 @@
 import requests 
 import sys
 
-url = "http://localhost:8080/AltoroJ"
+url = "http://" + sys.argv[1] + ":" + sys.argv[2] + "/AltoroJ"
 
 s = requests.Session()
 
