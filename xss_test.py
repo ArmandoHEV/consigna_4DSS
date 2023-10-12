@@ -19,9 +19,9 @@ headers = {
     "Upgrade-Insecure-Requests": "1",
 }
 
-injection = "<script>alert('Vulnerabilidad XSS')</script>"
+injection = "'<script>alert('Vulnerabilidad XSS')</script>'"
 
-response = s.get(url+"/search.jsp?query="+injection, headers=headers, )
+response = s.get(url+"/search.jsp?query="+injection, headers=headers)
 
 if injection in response.text:
     sys.exit(1)
