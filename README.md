@@ -33,7 +33,7 @@ pip install requests
 ```
 
 ## Utilización de los códigos:
-Para utilizar los scripts y hacer las pruebas se ve necesario hacer los pasos indicados en el setup. Posteriormente se deben descargar los archivos, y abrir una consola en la cual se debe cambiar de repositorio, usando el comando cd <ruta_script>, hasta aquel donde se encuentra el script, y por ultimo ingresar python3 <nombre_script> para ejecutar el código.
+Para utilizar los scripts y hacer las pruebas se ve necesario hacer los pasos indicados en el setup. Posteriormente se deben descargar los archivos, y abrir una consola en la cual se debe cambiar de repositorio, usando el comando cd <ruta_script>, hasta aquel donde se encuentra el script, y por ultimo ingresar python3 <nombre_script> <host/dominio> <puerto> para ejecutar el código.
 
 ### Prueba sql_injection_test.py
 Primer se importan las librerias requests, y sys. Sus funcionalidades son crear los requests al servidor, e indicar un valor de exit code.
@@ -41,7 +41,7 @@ Primer se importan las librerias requests, y sys. Sus funcionalidades son crear 
 import requests 
 import sys
 ```
-En la variable url se indica la url base para hacer la consulta, de cambiar de puerto el servidor, o poseer otro dominio, esta deberá ser modificada con los nuevos valores.
+En la variable url se indica la url base para hacer la consulta, se obtiene el host y el puerto de los argumentos pasados al ejecutar el script por consola.
 ```
 url = "http://" + sys.argv[1] + ":" + sys.argv[2] + "/AltoroJ"
 ```
