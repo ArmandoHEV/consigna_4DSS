@@ -43,7 +43,7 @@ import sys
 ```
 En la variable url se indica la url base para hacer la consulta, de cambiar de puerto el servidor, o poseer otro dominio, esta deberá ser modificada con los nuevos valores.
 ```
-url = "http://localhost:8080/AltoroJ"
+url = "http://" + sys.argv[1] + ":" + sys.argv[2] + "/AltoroJ"
 ```
 Primero se hace un get a la url para obtener el JSESSIONID que es necesario para poder recrear correctamente la request con la inyección al servidor.
 ```
@@ -87,7 +87,7 @@ En esta prueba hacemos los mismos imports, y hay que tener en cuenta las mismas 
 import requests 
 import sys
 
-url = "http://localhost:8080/AltoroJ"
+url = "http://" + sys.argv[1] + ":" + sys.argv[2] + "/AltoroJ"
 ```
 Nuevamente se recrea un request, en este caso estamos recreando el request generado al buscar algo en la searchbar.
 ```
