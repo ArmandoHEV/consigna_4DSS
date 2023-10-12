@@ -122,3 +122,9 @@ if injection in response.text:
 else:
     sys.exit(0)
 ```
+
+## Contribuyentes
+
+- Santiago Ferraro
+- Armando Hernandez
+- Franco de Stefano
